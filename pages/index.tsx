@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import NavBar from "../components/NavBar";
 import Reviews from "../components/Reviews";
 
 import styles from "../styles/Home.module.css";
