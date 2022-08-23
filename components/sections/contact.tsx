@@ -1,5 +1,7 @@
 import { Box, Button, Flex, Input, Text, Textarea } from "@chakra-ui/react";
-import { useState } from "react";
+import axios from "axios";
+import { FormEvent, useState } from "react";
+import toast from "react-hot-toast";
 import SectionHeading from "../shared/section-heading";
 
 const inputStyles = {
@@ -15,6 +17,69 @@ const ContactSection = () => {
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
 
+  const formHandler = async (event: FormEvent) => {
+    event.preventDefault();
+
+    const data = {
+      embeds: [
+        {
+          type: "rich",
+          title: `טופס צור קשר`,
+          description: "",
+          color: 0x00ffff,
+          fields: [
+            {
+              name: `מספר טלפון`,
+              value: phoneNumber || " ",
+              inline: false,
+            },
+            {
+              name: `אימייל`,
+              value: email || " ",
+              inline: false,
+            },
+            {
+              name: `תיאור`,
+              value: description || " ",
+              inline: false,
+            },
+          ],
+        },
+      ],
+    };
+
+    const JSONdata = JSON.stringify(data);
+
+    const endpoint = "/api/contact-form";
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: JSONdata,
+    };
+
+    const myPromise = axios(endpoint, options);
+
+    toast.promise(
+      myPromise,
+      {
+        loading: "טוען",
+        success: () => `פנייתך נשמרה בהצלחה`,
+        error: (err) => `קרתה שגיאה ${err.toString()}`,
+      },
+      {
+        style: {
+          minWidth: "250px",
+        },
+        success: {
+          duration: 5000,
+          icon: "🔥",
+        },
+      }
+    );
+  };
   return (
     <Box
       as="section"
@@ -37,7 +102,7 @@ const ContactSection = () => {
         שלכם.
       </Text>
 
-      <Box as="form" action="#" method="POST">
+      <Box as="form" onSubmit={formHandler}>
         <Flex
           flexDir={{ base: "column", sm: "row" }}
           gap={{ base: "15px", sm: "30px" }}
@@ -111,37 +176,6 @@ const ContactSection = () => {
           variant="unstyled"
           bg="primary"
           py={{ base: "18px", sm: "27px" }}
-          onClick={async (event) => {
-            // Stop the form from submitting and refreshing the page.
-            event.preventDefault();
-
-            // Get data from the form.
-            const data = {
-              content: `מספר טלפון:${phoneNumber}\n\nאימייל:${email}\n\nתיאור:${description}`,
-            };
-
-            // Send the data to the server in JSON format.
-            const JSONdata = JSON.stringify(data);
-
-            // API endpoint where we send form data.
-            const endpoint = "/api/contact-form";
-
-            // Form the request for sending data to the server.
-            const options = {
-              // The method is POST because we are sending data.
-              method: "POST",
-              // Tell the server we're sending JSON.
-              headers: {
-                "Content-Type": "application/json",
-              },
-              // Body of the request is the JSON data we created above.
-              body: JSONdata,
-            };
-
-            // Send the form data to our forms API on Vercel and get a response.
-            const response = await fetch(endpoint, options);
-            console.log("succuss");
-          }}
         >
           צור קשר
         </Button>
