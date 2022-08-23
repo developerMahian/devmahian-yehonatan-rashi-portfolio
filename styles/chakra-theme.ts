@@ -14,6 +14,7 @@ const ChakraTheme = extendTheme({
 				overflowX: "hidden",
 			},
 			img: { objectFit: "cover" },
+			"a:hover": { color: "white" },
 		},
 	},
 	breakpoints: { lg: "65.75em", "2xl": "92em" },

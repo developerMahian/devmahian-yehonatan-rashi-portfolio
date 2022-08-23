@@ -59,22 +59,25 @@ const BannerSection = () => (
 					<IconButton
 						as={Link}
 						isExternal
-						href="https://www.instagram.com/"
+						href="https://www.instagram.com/rashi.designss/"
 						aria-label="Connect on Instagram"
 						icon={<CameraIcon />}
 					/>
 					<IconButton
 						as={Link}
 						isExternal
-						href="https://www.youtube.com/"
+						href="https://www.youtube.com/channel/UCE2tW8rUgAH7KlCyMQe9LaA"
 						aria-label="View me on Youtube"
 						icon={<Youtube />}
 					/>
 					<Button
+						as="a"
+						href="#contact"
 						variant="unstyled"
 						bg="primary"
 						h="auto"
 						p={{ base: "16px 28px", sm: "20px 44px", lg: "20px 68px" }}
+						_hover={{ color: "white" }}
 					>
 						צור קשר
 					</Button>

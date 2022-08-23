@@ -53,10 +53,14 @@ const AboutSection = () => (
 					האתגרים העיצוביים שלכם, ולשפר את הנראות של העסק שלכם.
 				</Text>
 				<Button
-					display={{ base: "none", lg: "inline" }}
+					as="a"
+					href="#contact"
 					variant="unstyled"
+					display={{ base: "none", lg: "block" }}
 					bg="primary"
+					w="fit-content"
 					h="auto"
+					ml="auto"
 					p={{ base: "20px 44px", lg: "20px 68px" }}
 				>
 					צור קשר

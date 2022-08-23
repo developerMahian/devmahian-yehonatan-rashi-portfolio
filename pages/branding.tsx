@@ -50,6 +50,7 @@ const Branding: NextPage = () => {
 					fontWeight={500}
 					color="darkBg.50"
 					mb={{ base: "24px", sm: "32px" }}
+					_hover={{ color: "darkBg.50" }}
 				>
 					חזור אחורה
 					<RightArrow />

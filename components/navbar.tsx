@@ -84,6 +84,8 @@ const Navbar = () => {
 					mb={{ base: "100px", sm: "160px", lg: "50px" }}
 				>
 					<Button
+						as="a"
+						href="#contact"
 						variant="unstyled"
 						display={{ base: "none", lg: "block" }}
 						bg="darkBg.200"

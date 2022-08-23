@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import NextLink from "next/link";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import SectionHeading from "../shared/section-heading";
 import { AiPsImage } from "../svg-assets";
 
@@ -59,19 +60,25 @@ const ShowcaseSection = () => {
 				gap="35px"
 			>
 				<Flex flex={0.545} gap={{ base: "16px", sm: "26px", md: "32px" }}>
-					<Box w="55%" sx={ImgWrapperStyle}>
-						<img src="/assets/showcase-1.png" alt="" />
-						<ImgBottomOverLay text="מיתוג" />
-					</Box>
+					<NextLink href="/branding" passHref>
+						<Box as="a" w="55%" sx={ImgWrapperStyle}>
+							<img src="/assets/showcase-1.png" alt="" />
+							<ImgBottomOverLay text="מיתוג" />
+						</Box>
+					</NextLink>
 					<Flex w="45%" flexDir="column" gap={{ base: "14px", sm: "18px", md: "22px" }}>
-						<Box h="65%" sx={ImgWrapperStyle}>
-							<img src="/assets/showcase-2.png" alt="" />
-							<ImgBottomOverLay text="מדיה חברתית" />
-						</Box>
-						<Box h="35%" sx={ImgWrapperStyle}>
-							<img src="/assets/showcase-3.png" alt="" />
-							<ImgBottomOverLay text="טאמבניילים" />
-						</Box>
+						<NextLink href="/branding" passHref>
+							<Box as="a" h="65%" sx={ImgWrapperStyle}>
+								<img src="/assets/showcase-2.png" alt="" />
+								<ImgBottomOverLay text="מדיה חברתית" />
+							</Box>
+						</NextLink>
+						<NextLink href="/branding" passHref>
+							<Box as="a" h="35%" sx={ImgWrapperStyle}>
+								<img src="/assets/showcase-3.png" alt="" />
+								<ImgBottomOverLay text="טאמבניילים" />
+							</Box>
+						</NextLink>
 					</Flex>
 				</Flex>
 

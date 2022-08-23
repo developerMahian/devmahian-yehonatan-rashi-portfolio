@@ -40,28 +40,37 @@ const Footer = () => {
 					<Box display={{ base: "none", lg: "block" }}>
 						<ListHeading>תיק עבודות</ListHeading>
 						<UnorderedList listStyleType="none" spacing={{ base: "24px", "2xl": "40px" }}>
-							<FooterLink url="#">מיתוג</FooterLink>
-							<FooterLink url="#">מדיה חברתית</FooterLink>
-							<FooterLink url="#">טאמבניילים</FooterLink>
+							<FooterLink url="#" notExternal>
+								מיתוג
+							</FooterLink>
+							<FooterLink url="#" notExternal>
+								מדיה חברתית
+							</FooterLink>
+							<FooterLink url="#" notExternal>
+								טאמבניילים
+							</FooterLink>
 						</UnorderedList>
 					</Box>
 					<Box>
 						<ListHeading borderB>איפה אני נמצא?</ListHeading>
 						<UnorderedList listStyleType="none" spacing={{ base: "24px", "2xl": "40px" }}>
 							<FooterLink
-								url="#"
+								url="https://www.instagram.com/rashi.designss/"
 								icon={<CameraIcon />}
 								extraSvgCss={{ w: { base: "18px", "2xl": "22px" } }}
 							>
 								Instagram
 							</FooterLink>
-							<FooterLink url="#" icon={<BehanceIcon />}>
+							<FooterLink url="http://be.net/RashiDesignn" icon={<BehanceIcon />}>
 								Behance
 							</FooterLink>
 							<FooterLink url="#" icon={<AtEmailIcon />}>
 								jonathanrashi100@gmail.com
 							</FooterLink>
-							<FooterLink url="#" icon={<Youtube />}>
+							<FooterLink
+								url="https://www.youtube.com/channel/UCE2tW8rUgAH7KlCyMQe9LaA"
+								icon={<Youtube />}
+							>
 								YouTube
 							</FooterLink>
 						</UnorderedList>
@@ -70,10 +79,18 @@ const Footer = () => {
 						<ListHeading MobileBorderB>תפריט</ListHeading>
 						<ListHeading>דף הבית</ListHeading>
 						<UnorderedList listStyleType="none" spacing={{ base: "24px", "2xl": "40px" }}>
-							<FooterLink url="#">תיק עבודות</FooterLink>
-							<FooterLink url="#">אודות</FooterLink>
-							<FooterLink url="#">לקוחות אומרים</FooterLink>
-							<FooterLink url="#">יצירת קשר</FooterLink>
+							<FooterLink url="#" notExternal>
+								תיק עבודות
+							</FooterLink>
+							<FooterLink url="#" notExternal>
+								אודות
+							</FooterLink>
+							<FooterLink url="#" notExternal>
+								לקוחות אומרים
+							</FooterLink>
+							<FooterLink url="#" notExternal>
+								יצירת קשר
+							</FooterLink>
 						</UnorderedList>
 					</Box>
 					<Flex flexDir="column" alignSelf="flex-start" display={{ base: "none", lg: "block" }}>
@@ -103,21 +120,21 @@ const Footer = () => {
 							<IconButton
 								as={Link}
 								isExternal
-								href="#"
+								href="https://www.youtube.com/channel/UCE2tW8rUgAH7KlCyMQe9LaA"
 								aria-label="View me on Youtube"
 								icon={<Youtube />}
 							/>
 							<IconButton
 								as={Link}
 								isExternal
-								href="#"
+								href="http://be.net/RashiDesignn"
 								aria-label="View me on Youtube"
 								icon={<BehanceIcon />}
 							/>
 							<IconButton
 								as={Link}
 								isExternal
-								href="#"
+								href="https://www.instagram.com/rashi.designss/"
 								aria-label="View me on Youtube"
 								icon={<CameraIcon />}
 							/>
@@ -165,10 +182,17 @@ const ListHeading = (props: { children: string; borderB?: boolean; MobileBorderB
 	);
 };
 
-const FooterLink = (props: { children: string; url: string; icon?: ReactElement; extraSvgCss?: object }) => (
+const FooterLink = (props: {
+	children: string;
+	url: string;
+	icon?: ReactElement;
+	extraSvgCss?: object;
+	notExternal?: boolean;
+}) => (
 	<ListItem>
 		<NextLink href={props.url} passHref>
 			<Link
+				isExternal={!props.notExternal}
 				sx={{
 					display: props.icon ? "flex" : "block",
 					alignItems: "center",
