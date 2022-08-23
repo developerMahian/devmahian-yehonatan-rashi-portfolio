@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
 import Head from "next/head";
 import NextLink from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { RightArrow } from "../components/svg-assets";
 
@@ -93,8 +95,33 @@ const Branding: NextPage = () => {
 					<Box display={{ base: "none", md: "block" }} flex={{ base: 0.6, xl: 0.7 }} h="80vh">
 						<TopHeading />
 
-						<Box position="relative" w="100%" h="100%" sx={{ img: { borderRadius: "8px" } }}>
-							<Image src="/assets/gallery-hero.png" alt="" layout="fill" />
+						<Box position="relative">
+							<Box
+								maxH="81vh"
+								overflowY="auto"
+								borderRadius="8px"
+								sx={{ "&::-webkit-scrollbar": { display: "none" } }}
+							>
+								<img src="/assets/portfolio-item-preview.png" alt="" />
+							</Box>
+
+							<Box position="absolute" left="50%" transform="translateX(-50%)" bottom="34px">
+								<motion.div
+									transition={{ y: { duration: 0.5, yoyo: Infinity, ease: "easeOut" } }}
+									animate={{ y: ["-1.5rem", "-2.5rem"] }}
+								>
+									<Flex
+										alignItems="center"
+										gap="18px"
+										fontWeight={500}
+										color="#2E2E2E"
+										sx={{ svg: { fill: "#2E2E2E", transform: "rotate(90deg)" } }}
+									>
+										המשך לגלול
+										<RightArrow />
+									</Flex>
+								</motion.div>
+							</Box>
 						</Box>
 					</Box>
 

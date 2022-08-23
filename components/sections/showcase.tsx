@@ -60,20 +60,20 @@ const ShowcaseSection = () => {
 				gap="35px"
 			>
 				<Flex flex={0.545} gap={{ base: "16px", sm: "26px", md: "32px" }}>
-					<NextLink href="/branding" passHref>
+					<NextLink href="/portfolio-item" passHref>
 						<Box as="a" w="55%" sx={ImgWrapperStyle}>
 							<img src="/assets/showcase-1.png" alt="" />
 							<ImgBottomOverLay text="מיתוג" />
 						</Box>
 					</NextLink>
 					<Flex w="45%" flexDir="column" gap={{ base: "14px", sm: "18px", md: "22px" }}>
-						<NextLink href="/branding" passHref>
+						<NextLink href="/portfolio-item" passHref>
 							<Box as="a" h="65%" sx={ImgWrapperStyle}>
 								<img src="/assets/showcase-2.png" alt="" />
 								<ImgBottomOverLay text="מדיה חברתית" />
 							</Box>
 						</NextLink>
-						<NextLink href="/branding" passHref>
+						<NextLink href="/portfolio-item" passHref>
 							<Box as="a" h="35%" sx={ImgWrapperStyle}>
 								<img src="/assets/showcase-3.png" alt="" />
 								<ImgBottomOverLay text="טאמבניילים" />
