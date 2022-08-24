@@ -44,7 +44,7 @@ const ReviewsSlider = () => {
 			transition={{ delay: 0.1, y: { duration: 0.5 } }}
 			viewport={{ once: true }}
 		>
-			<Box display={{ base: "none", lg: "block" }} py="20px" mb={{ base: "65px", md: "90px" }}>
+			<Box py="20px" mb={{ base: "65px", md: "90px" }}>
 				<SectionHeading mb={{ base: "36px", md: "64px" }}>ביקורות</SectionHeading>
 
 				<Box
@@ -69,6 +69,7 @@ const ReviewsSlider = () => {
 											bgColor: "darkBg.100",
 											borderRadius: "16px",
 											pb: "73px",
+											px: "16px",
 											textAlign: "center",
 										}}
 									>
@@ -94,7 +95,7 @@ const ReviewsSlider = () => {
 										</Text>
 										<Text
 											maxW="626px"
-											fontSize="24px"
+											fontSize={{ base: "20px", md: "24px" }}
 											lineHeight="42px"
 											mx="auto"
 											textAlign="right"

@@ -15,7 +15,7 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<TransitionWrapper initialY={-100}>
+			<TransitionWrapper initialY={-20}>
 				<Navbar />
 			</TransitionWrapper>
 
